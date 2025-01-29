@@ -1,0 +1,20 @@
+* Writing a Scheme in Haskel
+Following the book [[Write You a Scheme in 48 H][http://en.wikibooks.org/wiki/Image:Write_Yourself_a_Scheme_in_48_Hours.pdf]] .
+** Exercises
+Exercices in branches
+** Levels
+*** Level 1: One file, compiling and running (TODO)
+*** Level 2: Parsing, two files, using Cabal (TODO)
+*** Level 2.1: Parsing, white spaces (TODO)
+*** Level 2.2: Parsing, Data definitions (TODO)
+*** Level 2.3: Parsing, resursive structures (TODO)
+*** Level 3: Evaluation (TODO)
+*** Level 3.1: Evaluation, Error Checking and Exceptions (TODO)
+*** Level 3.2: Evaluation, More primitives (TODO)
+*** Level 3.3: Evaluation, List primitives (TODO)
+*** Level 3.3: Evaluation, Equal? and Weak Typing (TODO)
+*** Level 4: Basic IO, Building a REPL (TODO)
+*** Level 5: Mutable State (TODO)
+*** Level 6: Scheme Functions, Closures and Env (TODO)
+*** Level 7: File I/O (TODO)
+*** Level 8: Towards a standard library (TODO)
