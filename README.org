@@ -4,7 +4,7 @@ Following the book [[Write You a Scheme in 48 H][http://en.wikibooks.org/wiki/Im
 Exercices in branches
 ** Levels
 *** Level 1: One file, compiling and running (DONE)
-*** Level 2: Parsing, two files, using Cabal (TODO)
+*** Level 2: Parsing, two files, using Cabal (DONE)
 *** Level 2.1: Parsing, white spaces (TODO)
 *** Level 2.2: Parsing, Data definitions (TODO)
 *** Level 2.3: Parsing, resursive structures (TODO)

@@ -1,7 +1,7 @@
 module Main where
 import System.Environment
--- hook up the module parser to main (TODO)
+import Parser
 
 main :: IO ()
 main = do args <- getArgs
-          putStrLn ("Hello, " ++ head args)
+          putStrLn (readExpr (head args))
