@@ -1,5 +1,0 @@
-* To build
-#+begin_src sh
-ghc -o hello_you Main.hs
-./hello_you Vic
-#+end_src
