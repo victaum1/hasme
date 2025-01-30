@@ -2,7 +2,15 @@ module Parser where
 import Text.ParserCombinators.Parsec hiding (spaces)
 import Control.Monad -- import Monad outdated
 import Defs
-
+{-  
+ Our strings aren’t quite R5RS compliant, because
+ they don’t support escaping of internal quotes
+ within the string. Change parseString so that \"
+ gives a literal quote character instead of
+ terminating the string. You may want to replace none
+ Of "\"" with a new parser action that accepts
+ either a non-quote character or a backslash followed by a quote mark.
+-}
 symbol :: Parser Char
 symbol = oneOf "!$%&|*+-/:<=?>@^_~#"
 

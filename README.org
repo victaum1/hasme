@@ -7,7 +7,7 @@ Exercices in branches
 *** Level 2: Parsing, two files, using Cabal (DONE)
 *** Level 2.1: Parsing, white spaces (DONE)
 *** Level 2.2: Parsing, Data definitions (DONE)
-*** Level 2.3: Parsing, resursive structures (TODO)
+*** Level 2.3: Parsing, recursive structures (TODO)
 *** Level 3: Evaluation (TODO)
 
 *** Level 3.1: Evaluation, Error Checking and Exceptions (TODO)
