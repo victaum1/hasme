@@ -1,6 +1,6 @@
 module Parser where
 import Text.ParserCombinators.Parsec hiding (spaces)
-import Control.Monad -- import Monad outdated
+-- import Control.Monad -- import Monad outdated
 import Defs
 
 symbol :: Parser Char
@@ -26,7 +26,10 @@ parseString = do _ <- char '"'
                  return $ SString x
 
 parseNumber :: Parser SVal
-parseNumber = liftM (SNumber . read) $ many1 digit
+-- parseNumber = liftM (SNumber . read) $ many1 digit
+parseNumber = do str <- many1 digit
+                 let num = (SNumber . read) str
+                 return num
 
 parseExpr :: Parser SVal
 parseExpr = parseAtom
