@@ -2,6 +2,9 @@ module Parser where
 import Text.ParserCombinators.Parsec hiding (spaces)
 import Control.Monad -- import Monad outdated
 import Defs
+{-
+Rewrite parseNumber using do-notation  
+-}
 
 symbol :: Parser Char
 symbol = oneOf "!$%&|*+-/:<=?>@^_~#"
