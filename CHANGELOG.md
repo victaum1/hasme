@@ -1,5 +1,9 @@
 # Revision history for hasme
 
+## 0.2.2.1 -- 2025-01-29
+
+* Parsing some data types.
+
 ## 0.2.2.0 -- 2025-01-29
 
 * Parsing white spaces and symbols.

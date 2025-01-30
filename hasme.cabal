@@ -20,7 +20,7 @@ name:               hasme
 -- PVP summary:     +-+------- breaking API changes
 --                  | | +----- non-breaking API additions
 --                  | | | +--- code changes with no API change
-version:            0.2.2.0
+version:            0.2.2.1
 
 -- A short (one-line) description of the package.
 -- synopsis:
@@ -53,6 +53,8 @@ common warnings
 library
   exposed-modules:
         Parser
+        , Defs
+
   hs-source-dirs:
         src
   build-depends:
