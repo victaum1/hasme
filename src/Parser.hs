@@ -64,4 +64,5 @@ parseExpr = parseAtom
 readExpr :: String -> String
 readExpr input = case parse parseExpr "scheme" input of
   Left err -> "No match: " ++ show err
-  Right _ -> "Found value"
+  Right val -> "Found : " ++ show val
+
