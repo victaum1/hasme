@@ -61,8 +61,7 @@ parseExpr = parseAtom
   <|> parseQuoted
   <|> parseList
 
-readExpr :: String -> String
+readExpr :: String -> SVal
 readExpr input = case parse parseExpr "scheme" input of
-  Left err -> "No match: " ++ show err
-  Right val -> "Found : " ++ show val
-
+  Left err -> SString $ "No match: " ++ show err
+  Right val -> val

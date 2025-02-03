@@ -1,7 +1,8 @@
 module Main where
 import System.Environment
 import Parser
+import Eval
 
 main :: IO ()
-main = do args <- getArgs
-          putStrLn (readExpr (head args))
+main = getArgs >>=
+          putStrLn . show . eval . readExpr . head
