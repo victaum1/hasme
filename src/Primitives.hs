@@ -1,5 +1,7 @@
 module Primitives where
 import Defs
+{- Add primitives to perform the various type-testing functions
+of R5RS: symbol?, string?, number?, etc. -}
 
 unpackNum :: SVal -> Integer
 unpackNum (SNumber n) = n
