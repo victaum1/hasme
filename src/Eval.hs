@@ -1,6 +1,10 @@
 module Eval where
 import Defs
 import Primitives
+{-
+Add the symbol-handling functions from R5RS. A symbol is what we’ve
+been calling an Atom in our data constructors.
+-}
 
 eval :: SVal-> SVal
 eval val@(SString _ ) = val
