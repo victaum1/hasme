@@ -1,5 +1,9 @@
 # Revision history for hasme
 
+## 0.2.4.1 -- 2025-02-06
+
+* First Evaluator.
+
 ## 0.2.2.1 -- 2025-01-29
 
 * Parsing some data types.
