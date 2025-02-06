@@ -55,6 +55,7 @@ library
         Parser
       , Defs
       , Eval
+      , Primitives
 
   hs-source-dirs:
         src
