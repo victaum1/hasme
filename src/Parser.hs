@@ -1,5 +1,6 @@
 module Parser where
 import Text.ParserCombinators.Parsec hiding (spaces)
+import Control.Monad.Error (throwError)
 import Defs
 
 symbol :: Parser Char
@@ -7,7 +8,6 @@ symbol = oneOf "!$%&|*+-/:<=?>@^_~#"
 
 spaces :: Parser ()
 spaces = skipMany1 space
-
 
 parseAtom :: Parser SVal
 parseAtom = do first <- (letter <|> symbol)
@@ -53,15 +53,14 @@ parseList = do
   _ <- char ')'
   return x
 
-
 parseExpr :: Parser SVal
 parseExpr = parseAtom
   <|> parseString
   <|> parseNumber
   <|> parseQuoted
   <|> parseList
-
-readExpr :: String -> SVal
+  
+readExpr :: String -> ThrowsError SVal
 readExpr input = case parse parseExpr "scheme" input of
-  Left err -> SString $ "No match: " ++ show err
-  Right val -> val
+  Left err -> throwError $ SPError err
+  Right val -> return val
