@@ -9,9 +9,9 @@ Exercices in branches
 *** Level 2.2: Parsing, Data definitions (DONE)
 *** Level 2.3: Parsing, recursive structures (DONE)
 *** Level 3: First Evaluator (DONE)
-
 *** Level 3.1: Evaluation, Error Checking and Exceptions (DONE)
 *** Level 3.2: Evaluation, More primitives (DONE)
+*** Level 3.3: Evaluation, Special form 'if' (DONE)
 *** Level 3.3: Evaluation, List primitives (TODO)
 *** Level 3.3: Evaluation, Equal? and Weak Typing (TODO)
 *** Level 4: Basic IO, Building a REPL (TODO)

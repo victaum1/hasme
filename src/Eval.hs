@@ -8,10 +8,16 @@ eval val@(SString _ ) = return val
 eval val@(SNumber _ ) = return val
 eval val@(SBool _ ) = return val
 eval (SList [Atom "quote", val]) = return val
+eval (SList [Atom "if", _pred, conseq, alt]) =
+  do result <- eval _pred
+     case result of
+       SBool False -> eval alt
+       _ -> eval conseq
 eval (SList (Atom func : args ) ) = mapM eval args >>= apply func
 eval badForm = throwError $ BadSpecialForm ("Unrecognized " ++
   "special form: ") badForm
 
 apply :: String -> [SVal] -> ThrowsError SVal
-apply func args = maybe (throwError $ NotAFunc "Unrecognized primitive function args " func ) ($ args) (lookup func
-  primitives)
+apply func args = maybe (throwError $ NotAFunc ("Unrecognized " ++
+                         "primitive function args.") func )
+                         ($ args) (lookup func  primitives)
