@@ -50,4 +50,46 @@ primitives = [("+", numericBinOp (+)),
               ( "string>?", strBoolBinop (>)),
               ( "string<?", strBoolBinop (<)),
               ( "string<=?", strBoolBinop (<=)),
-              ( "string>=?", strBoolBinop (>=))]
+              ( "string>=?", strBoolBinop (>=)),
+              ("car", car),
+              ("cdr", cdr),
+              ("cons", cons),
+              ("eq?", eqv),
+              ("eqv?", eqv)]
+
+car :: [SVal] -> ThrowsError SVal
+car [SList (x : xs)] = return x
+car [DottedList (x : xs) _ ] = return x
+car [badArg] = throwError $ TypeMisMatch "pair" badArg
+car badArgList = throwError $ NumArgs 1 badArgList
+
+cdr :: [SVal] -> ThrowsError SVal
+cdr [SList (x : xs)] = return $ SList xs
+cdr [DottedList (_:xs) x] = return $ DottedList xs x
+cdr [DottedList [_] x] = return x
+cdr [badArg] = throwError $ TypeMisMatch "pair" badArg
+cdr badArgList = throwError $ NumArgs 1 badArgList
+
+cons :: [SVal] -> ThrowsError SVal
+cons [x, SList []] = return $ SList [x]
+cons [x, SList xs] = return $ SList $ x : xs
+cons [x, DottedList xs xlast] = return $ DottedList (x : xs)
+  xlast
+cons [x1, x2] = return $ DottedList [x1] x2
+cons badArgList = throwError $ NumArgs 2 badArgList
+
+eqv :: [SVal] -> ThrowsError SVal
+eqv [SBool arg1, SBool arg2] = return $ SBool $ arg1 == arg2
+eqv [SNumber arg1, SNumber arg2] = return $ SBool $ arg1 == arg2
+eqv [SString arg1, SString arg2] = return $ SBool $ arg1 == arg2
+eqv [Atom arg1, Atom arg2] = return $ SBool $ arg1 == arg2
+eqv [DottedList xs x, DottedList ys y] = eqv [SList $ xs ++ [x],
+    SList $ ys ++ [y]]
+eqv [SList arg1, SList arg2] = return $ SBool $ (length arg1 ==
+    length arg2) && all eqvPair (zip arg1 arg2) 
+    where eqvPair (x1,x2) = case eqv [x1,x2] of
+            Left err -> False
+            Right (SBool val) -> val
+eqv [_,_] = return $ SBool False
+eqv badArgList = throwError $ NumArgs 2 badArgList
+
