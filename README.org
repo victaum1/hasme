@@ -14,7 +14,7 @@ Exercices in branches
 *** Level 3.3: Evaluation, Special form 'if' (DONE)
 *** Level 3.3: Evaluation, List primitives (DONE)
 *** Level 3.3: Evaluation, Equal? and Weak Typing (TODO)
-*** Level 4: Basic IO, Building a REPL (TODO)
+*** Level 4: Basic IO, Building a REPL (DONE)
 *** Level 5: Mutable State (TODO)
 *** Level 6: Scheme Functions, Closures and Env (TODO)
 *** Level 7: File I/O (TODO)
